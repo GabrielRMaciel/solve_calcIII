@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolução de Questão de Cálculo (Versão Atualizada)</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        header h1 {
+            color: #0056b3;
+        }
+        .question-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #17a2b8;
+        }
+        .solution-box {
+            background-color: #e9f7ef;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Resolução Detalhada de Cálculo: Integrais Múltiplas</h1>
+            <p>Uma abordagem passo a passo, como explicada por um professor.</p>
+        </header>
+
+        <main>
+            <h2>Enunciado da Questão</h2>
+            <p>A questão pede para <strong>montar, mas não calcular</strong>, cinco integrais diferentes relacionadas a um sólido com geometria e densidade específicas.</p>
+            <img src="image.png" alt="Enunciado da questão" class="question-image">
+
+            <h2>Análise Inicial do Sólido</h2>
+            <p>Antes de montar as integrais, é fundamental compreender o sólido. Ele é definido por:</p>
+            <ul>
+                <li><strong>Limite lateral:</strong> O cilindro \(x^2 + y^2 = 9\). É um cilindro de raio 3 centrado no eixo z.</li>
+                <li><strong>Limite superior:</strong> O plano inclinado \(z = x - y + 5\).</li>
+                <li><strong>Limite inferior:</strong> O plano xOy, que é o mesmo que \(z = 0\).</li>
+            </ul>
+            <p>A <strong>função densidade</strong> de massa do sólido é dada por \(\sigma(x, y, z) = x^2 - 2y + z\).</p>
+
+            <hr>
+
+            <h2>A) Integral Dupla em Coordenadas Cartesianas para o Volume</h2>
+            <p>O volume de um sólido pode ser encontrado integrando a função "altura" sobre a região da sua base no plano xy.</p>
+            <ol>
+                <li><strong>Região de Integração (Base D):</strong> A base do sólido é a projeção do cilindro no plano xOy, que é o círculo \(x^2 + y^2 \le 9\).</li>
+                <li><strong>Função Altura \(h(x,y)\)</strong>: A altura é a diferença entre o teto e o piso do sólido.
+                    <ul>
+                        <li>Teto: \(z_{superior} = x - y + 5\)</li>
+                        <li>Piso: \(z_{inferior} = 0\)</li>
+                        <li>Altura: \(h(x, y) = (x - y + 5) - 0 = x - y + 5\)</li>
+                    </ul>
+                </li>
+                <li><strong>Montagem da Integral:</strong> Para descrever a região circular \(D\) em coordenadas cartesianas, temos \(x\) variando de -3 a 3, e para cada \(x\), \(y\) varia entre \(-\sqrt{9 - x^2}\) e \(\sqrt{9 - x^2}\).</li>
+            </ol>
+            <div class="solution-box">
+                <p>\[ V = \int_{-3}^{3} \int_{-\sqrt{9 - x^2}}^{\sqrt{9 - x^2}} (x - y + 5) \,dy\,dx \]</p>
+            </div>
+
+            <hr>
+
+            <h2>B) Integral Dupla em Coordenadas Polares para o Volume</h2>
+            <p>A base circular do sólido torna as coordenadas polares uma escolha natural e muito mais simples para a integração.</p>
+            <ol>
+                <li><strong>Transformação de Coordenadas:</strong> Usamos \(x = r \cos(\theta)\), \(y = r \sin(\theta)\), e o elemento de área \(dA = dx\,dy\) se torna \(r\,dr\,d\theta\).</li>
+                <li><strong>Região de Integração em Polares:</strong> O círculo \(x^2 + y^2 \le 9\) torna-se \(r^2 \le 9\), então \(0 \le r \le 3\). Para o círculo completo, \(0 \le \theta \le 2\pi\).</li>
+                <li><strong>Função Altura em Polares:</strong> Substituímos \(x\) e \(y\) na função altura: \(h(r, \theta) = r \cos(\theta) - r \sin(\theta) + 5\).</li>
+            </ol>
+            <div class="solution-box">
+                <p>\[ V = \int_{0}^{2\pi} \int_{0}^{3} (r \cos(\theta) - r \sin(\theta) + 5) \,r\,dr\,d\theta \]</p>
+                <p><strong>Atenção:</strong> Lembre-se sempre de incluir o fator \(r\) no diferencial ao converter para coordenadas polares!</p>
+            </div>
+
+            <hr>
+
+            <h2>C) Integral Tripla em Cartesianas (dzdydx) para a Massa</h2>
+            <p>A massa de um sólido com densidade variável é a integral tripla da função densidade sobre o volume do sólido.</p>
+            <ol>
+                <li><strong>Função a ser Integrada:</strong> A própria função densidade \(\sigma(x, y, z) = x^2 - 2y + z\).</li>
+                <li><strong>Ordem de Integração (\(dz\,dy\,dx\)):</strong> Esta é a ordem mais "natural" para este sólido.
+                    <ul>
+                        <li><strong>Limites de \(z\) (de baixo para cima):</strong> O sólido vai do plano \(z=0\) até o plano \(z = x - y + 5\).</li>
+                        <li><strong>Limites de \(y\) e \(x\):</strong> Estes definem a projeção na base, exatamente como no item A.</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="solution-box">
+                <p>\[ M = \int_{-3}^{3} \int_{-\sqrt{9 - x^2}}^{\sqrt{9 - x^2}} \int_{0}^{x - y + 5} (x^2 - 2y + z) \,dz\,dy\,dx \]</p>
+            </div>
+
+            <hr>
+
+            <h2>D) Integral Tripla em Cartesianas (dxdydz) para o Momento de Inércia em Relação ao Eixo z</h2>
+            <p>O momento de inércia \(I_z\) mede a resistência do sólido à rotação em torno do eixo z.</p>
+            <ol>
+                <li><strong>Fórmula:</strong> \(I_z = \iiint_V (\text{distância ao eixo z})^2 \cdot \sigma \,dV\). A distância de um ponto \((x,y,z)\) ao eixo z é \(\sqrt{x^2+y^2}\), então seu quadrado é \((x^2+y^2)\).</li>
+                <li><strong>Função a ser Integrada:</strong> \((x^2 + y^2) \cdot (x^2 - 2y + z)\).</li>
+                <li><strong>Ordem de Integração (\(dx\,dy\,dz\)):</strong> Esta ordem é muito complexa para este sólido, pois exige projetá-lo no plano yz. Os limites de integração se tornam dependentes e difíceis de descrever em uma única integral.
+                    <ul>
+                        <li><strong>Limites de \(x\) (o mais interno):</strong> Para um \((y, z)\) fixo, \(x\) é limitado pelo cilindro (\(x=\pm\sqrt{9-y^2}\)) e pelo plano (\(x \ge z+y-5\)).</li>
+                        <li><strong>Limites de \(y\) e \(z\):</strong> Definem a projeção no plano yz, que não é uma forma geométrica simples.</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="solution-box">
+                <p>A montagem exata é extremamente complexa e provavelmente exigiria a divisão da integral. A forma geral é:</p>
+                <p>\[ I_z = \int_{z_{min}}^{z_{max}} \int_{y_{min}(z)}^{y_{max}(z)} \int_{x_{min}(y,z)}^{x_{max}(y,z)} (x^2 + y^2)(x^2 - 2y + z) \,dx\,dy\,dz \]</p>
+                <p>Esta parte provavelmente testa a habilidade de reconhecer a dificuldade da ordem de integração.</p>
+            </div>
+            
+            <hr>
+
+            <h2>E) Integral Tripla em Cartesianas (dydzdx) para o Momento em Relação ao Plano xz</h2>
+            <p>O momento de massa em relação ao plano xz, \(M_{xz}\), descreve como a massa do sólido está distribuída em relação a este plano.</p>
+            <ol>
+                <li><strong>Fórmula:</strong> \(M_{xz} = \iiint_V y \cdot \sigma(x,y,z) \,dV\). O "braço" é a coordenada \(y\).</li>
+                <li><strong>Função a ser Integrada:</strong> \(y(x^2 - 2y + z)\).</li>
+                <li><strong>Ordem de Integração (\(dy\,dz\,dx\)):</strong> Similar ao item D, esta ordem não é natural para a geometria do sólido.
+                     <ul>
+                        <li><strong>Limites de \(x\) (o mais externo):</strong> \(-3 \le x \le 3\).</li>
+                        <li><strong>Limites de \(z\) (meio):</strong> Exigem a projeção do sólido no plano xz, que é limitada por \(z=0\) e \(z = x + \sqrt{9-x^2} + 5\).</li>
+                        <li><strong>Limites de \(y\) (o mais interno):</strong> Para um \((x,z)\) fixo, \(y\) é limitado pelo cilindro e pelo plano, resultando em \(y \le \min(\sqrt{9-x^2}, x+5-z)\).</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="solution-box">
+                <p>A montagem correta também é complexa. A estrutura seria:</p>
+                <p>\[ M_{xz} = \int_{-3}^{3} \int_{0}^{x+\sqrt{9-x^2}+5} \int_{-\sqrt{9-x^2}}^{\min(\sqrt{9-x^2}, x+5-z)} y(x^2 - 2y + z) \,dy\,dz\,dx \]</p>
+                <p>Assim como no item anterior, o desafio principal aqui é a visualização geométrica e a descrição dos limites para uma ordem de integração não trivial.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Resolução Educacional. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
